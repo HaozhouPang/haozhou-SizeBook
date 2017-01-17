@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Size Book</string>
+    <string name="welcome">Welcome To Size Book</string>
+    <string name="ShowAll">Show all records</string>
+    <string name="AddNew">Add a new record</string>
+    <string name="name">Enter the name</string>
+    <string name="date">Enter the date</string>
+
+</resources>

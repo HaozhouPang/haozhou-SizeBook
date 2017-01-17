@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+
+    <Button
+        android:id="@+id/ShowAll"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ShowAll" />
+
+    <Button
+        android:id="@+id/AddNew"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/AddNew"
+        android:onClick="add" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome" />
+
+
+</LinearLayout>
