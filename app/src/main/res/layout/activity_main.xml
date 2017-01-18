@@ -9,14 +9,17 @@
         android:id="@+id/ShowAll"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/ShowAll" />
+        android:text="@string/ShowAll"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:elevation="0dp" />
 
     <Button
         android:id="@+id/AddNew"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/AddNew"
-        android:onClick="add" />
+        android:onClick="add"
+        style="@style/Widget.AppCompat.Button.Colored" />
 
     <TextView
         android:layout_width="fill_parent"
