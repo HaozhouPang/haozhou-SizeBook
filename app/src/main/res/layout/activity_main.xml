@@ -4,6 +4,16 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
+    <ListView
+        android:id="@+id/oldRecord"
+        android:layout_width="fill_parent"
+        android:layout_height="263dp"
+        android:layout_weight="1"
+        android:scrollbars="vertical">
+
+
+    </ListView>
+
 
     <Button
         android:id="@+id/ShowAll"
