@@ -4,24 +4,19 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome" />
+
     <ListView
         android:id="@+id/oldRecord"
         android:layout_width="fill_parent"
         android:layout_height="263dp"
         android:layout_weight="1"
         android:scrollbars="vertical">
-
-
     </ListView>
 
-
-    <Button
-        android:id="@+id/ShowAll"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/ShowAll"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:elevation="0dp" />
 
     <Button
         android:id="@+id/AddNew"
@@ -30,11 +25,6 @@
         android:text="@string/AddNew"
         android:onClick="add"
         style="@style/Widget.AppCompat.Button.Colored" />
-
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/welcome" />
 
 
 </LinearLayout>
