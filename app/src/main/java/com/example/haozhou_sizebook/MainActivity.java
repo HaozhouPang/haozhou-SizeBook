@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private ListView oldRecord;
     private ArrayList<Person> personList;
     private ArrayAdapter<Person> adapter;
-
+    private Person selectedPerson;
     private int totalNum;
     private EditText total;
 
@@ -44,6 +45,24 @@ public class MainActivity extends AppCompatActivity {
         oldRecord = (ListView) findViewById(R.id.oldRecord);
         total = (EditText) findViewById(R.id.totalAmount);
 
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                adapter.remove(selectedPerson);
+                adapter.notifyDataSetChanged();
+                saveInFile();
+                totalNum = personList.size();
+                total.setText("The total amount of record is: "+totalNum);
+
+            }
+        });
+
+        oldRecord.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            public void onItemClick(AdapterView<?> adapter, View view,
+                                    int position, long id) {
+                selectedPerson = (Person) adapter.getItemAtPosition(position);
+            }
+        });
     }
     public void add(View view) {
         Intent intent = new Intent(this, A_NewRecord.class);
