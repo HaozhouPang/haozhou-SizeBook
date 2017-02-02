@@ -40,8 +40,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button addButton = (Button) findViewById(R.id.AddNew);
+        Button deleteButton = (Button) findViewById(R.id.Delete);
         oldRecord = (ListView) findViewById(R.id.oldRecord);
-
         total = (EditText) findViewById(R.id.totalAmount);
 
     }

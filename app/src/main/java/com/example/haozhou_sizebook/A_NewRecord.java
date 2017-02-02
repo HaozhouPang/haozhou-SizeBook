@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -55,32 +56,46 @@ public class A_NewRecord extends AppCompatActivity {
         saveButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                setResult(RESULT_OK);
                 String name = nameTxt.getText().toString();
-                String date = dateTxt.getText().toString();
-                String neck = neckTxt.getText().toString();
-                String bust = bustTxt.getText().toString();
-                String chest = chestTxt.getText().toString();
-                String waist= waistTxt.getText().toString();
-                String hip = hipTxt.getText().toString();
-                String inseam = inseamTxt.getText().toString();
-                String comment = commentTxt.getText().toString();
+
+                /**
+                 * The following codes that show empty name warning were copied from StackOverflow
+                 * http://stackoverflow.com/questions/3862394/when-do-you-use-apply-and-when-funcall
+                 */
+                if (name.matches("")) {
+                    Context context = getApplicationContext();
+                    Toast.makeText(context, "The name field is mandatory for a record!", Toast.LENGTH_SHORT).show();
+                    return;
+
+                }
+                else{
+                    setResult(RESULT_OK);
+                    String date = dateTxt.getText().toString();
+                    String neck = neckTxt.getText().toString();
+                    String bust = bustTxt.getText().toString();
+                    String chest = chestTxt.getText().toString();
+                    String waist = waistTxt.getText().toString();
+                    String hip = hipTxt.getText().toString();
+                    String inseam = inseamTxt.getText().toString();
+                    String comment = commentTxt.getText().toString();
 
 
-                Person person = new Person(name);
-                person.setDate(date);
-                person.setNeck(neck);
-                person.setBust(bust);
-                person.setChest(chest);
-                person.setWaist(waist);
-                person.setHip(hip);
-                person.setInseam(inseam);
-                person.setComment(comment);
+                    Person person = new Person(name);
+                    person.setDate(date);
+                    person.setNeck(neck);
+                    person.setBust(bust);
+                    person.setChest(chest);
+                    person.setWaist(waist);
+                    person.setHip(hip);
+                    person.setInseam(inseam);
+                    person.setComment(comment);
 
-                personList.add(person);
+                    personList.add(person);
 //adapter.add(tweetList);
-               // adapter.notifyDataSetChanged();
-                saveInFile();
+                    // adapter.notifyDataSetChanged();
+                    saveInFile();
+
+                }
 
 
 

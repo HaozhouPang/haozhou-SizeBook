@@ -31,6 +31,16 @@
         android:onClick="add"
         style="@style/Widget.AppCompat.Button.Colored" />
 
+    <Button
+        android:id="@+id/Delete"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete the record"
+        android:onClick="delete"
+        style="@style/Widget.AppCompat.Button.Colored" />
+
+
+
 
 
 </LinearLayout>
