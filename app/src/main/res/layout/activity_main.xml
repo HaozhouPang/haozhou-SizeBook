@@ -14,12 +14,13 @@
         android:choiceMode="singleChoice"
         android:listSelector="@android:color/darker_gray"
         android:layout_width="fill_parent"
-        android:layout_height="263dp"
+        android:layout_height="0dp"
         android:layout_weight="1"
         android:scrollbars="vertical">
     </ListView>
 
-    <EditText
+
+    <TextView
         android:id="@+id/totalAmount"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -37,16 +38,14 @@
         android:id="@+id/Delete"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Delete the record"
-        android:onClick="delete"
+        android:text="@string/Delete"
         style="@style/Widget.AppCompat.Button.Colored" />
 
     <Button
         android:id="@+id/View_Edit"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="View and edit the record"
-        android:onClick="view_edit"
+        android:text="@string/Edit"
         style="@style/Widget.AppCompat.Button.Colored" />
 
 

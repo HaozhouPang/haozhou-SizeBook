@@ -7,5 +7,9 @@
     <string name="AddNew">Add a new record</string>
     <string name="name">Enter the name</string>
     <string name="date">Enter the date</string>
+    <string name="Delete">Delete the record</string>
+    <string name="Edit">View and edit the record</string>
+    <string name="total">The total amount of record is: </string>
+
 
 </resources>
