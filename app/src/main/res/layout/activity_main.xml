@@ -41,6 +41,14 @@
         android:onClick="delete"
         style="@style/Widget.AppCompat.Button.Colored" />
 
+    <Button
+        android:id="@+id/View_Edit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="View and edit the record"
+        android:onClick="view_edit"
+        style="@style/Widget.AppCompat.Button.Colored" />
+
 
 
 

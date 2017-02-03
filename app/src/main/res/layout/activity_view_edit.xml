@@ -6,44 +6,40 @@
     android:layout_height="match_parent">
 
     <EditText
+        android:id="@+id/InseamNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:id="@+id/InseamNum"
-        android:hint="length in inches"
         android:layout_alignBaseline="@+id/textView8"
         android:layout_alignBottom="@+id/textView8"
         android:layout_alignStart="@+id/CommentTxt"
         android:inputType="numberDecimal" />
 
     <EditText
+        android:id="@+id/HipNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:id="@+id/HipNum"
-        android:hint="hip circumference"
         android:layout_alignBaseline="@+id/textView7"
         android:layout_alignBottom="@+id/textView7"
         android:layout_alignStart="@+id/InseamNum"
         android:inputType="numberDecimal" />
 
     <EditText
+        android:id="@+id/NeckNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:id="@+id/NeckNum"
-        android:hint="neck circumference"
         android:layout_alignBaseline="@+id/textView3"
         android:layout_alignBottom="@+id/textView3"
         android:layout_alignStart="@+id/NameTxt"
         android:inputType="numberDecimal" />
 
     <EditText
+        android:id="@+id/ChestNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:id="@+id/ChestNum"
-        android:hint="chest circumference"
         android:inputType="numberDecimal"
         android:layout_alignBaseline="@+id/textView5"
         android:layout_alignBottom="@+id/textView5"
@@ -59,12 +55,11 @@
         android:layout_alignStart="@+id/textView5" />
 
     <EditText
+        android:id="@+id/DateDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="date"
         android:ems="10"
-        android:id="@+id/DateDate"
-        android:hint="DD-MM-YY"
         android:layout_alignBaseline="@+id/textView2"
         android:layout_alignBottom="@+id/textView2"
         android:layout_alignStart="@+id/NeckNum" />
@@ -133,22 +128,21 @@
         android:layout_alignEnd="@+id/textView4" />
 
     <EditText
+        android:id="@+id/BustNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:id="@+id/BustNum"
-        android:hint="bust circumference"
         android:inputType="numberDecimal"
         android:layout_alignBaseline="@+id/textView4"
         android:layout_alignBottom="@+id/textView4"
         android:layout_alignStart="@+id/NeckNum" />
 
     <EditText
+        android:id="@+id/CommentTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="text"
         android:ems="10"
-        android:id="@+id/CommentTxt"
         android:layout_alignBaseline="@+id/textView9"
         android:layout_alignBottom="@+id/textView9"
         android:layout_alignStart="@+id/BustNum" />
@@ -165,11 +159,10 @@
         android:layout_toEndOf="@+id/textView3" />
 
     <EditText
+        android:id="@+id/WaistNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:id="@+id/WaistNum"
-        android:hint="waist circumference"
         android:layout_alignBaseline="@+id/textView6"
         android:layout_alignBottom="@+id/textView6"
         android:layout_alignStart="@+id/HipNum"
@@ -187,7 +180,7 @@
         android:layout_alignParentStart="true" />
 
     <Button
-        android:text="Save"
+        android:text="Save Changes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -195,11 +188,13 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true" />
 
-    <TextView
-        android:layout_width="fill_parent"
+    <Button
+        android:text="Back"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Note: the name field is mandatory for a record."
-        android:layout_above="@+id/SaveBot"
-        android:layout_alignParentStart="true" />
+        android:id="@+id/BackBot"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/textView8" />
+
 
 </RelativeLayout>
