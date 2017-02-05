@@ -4,12 +4,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -35,39 +38,48 @@ public class MainActivity extends AppCompatActivity {
     private TextView total;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button addButton = (Button) findViewById(R.id.AddNew);
+        //Button addButton = (Button) findViewById(R.id.AddNew);
         Button deleteButton = (Button) findViewById(R.id.Delete);
         oldRecord = (ListView) findViewById(R.id.oldRecord);
         total = (TextView) findViewById(R.id.totalAmount);
 
-        deleteButton.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View v) {
-                adapter.remove(selectedPerson);
-                adapter.notifyDataSetChanged();
-                saveInFile();
-                totalNum = personList.size();
-                total.setText("The total amount of record is: "+totalNum);
-
-            }
-        });
-
         oldRecord.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
             public void onItemClick(AdapterView<?> adapter, View view,
                                     int position, long id) {
                 selectedPerson = (Person) adapter.getItemAtPosition(position);
             }
         });
-    }
-    public void add(View view) {
-        Intent intent = new Intent(this, A_NewRecord.class);
-        startActivity(intent);
-    }
 
+
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                setResult(RESULT_OK);
+
+                if (selectedPerson.getName() != null) {
+                    personList.remove(selectedPerson);
+                    saveInFile();
+                    totalNum = personList.size();
+                    total.setText("The total amount of record is: " + totalNum);
+                    adapter.notifyDataSetChanged();
+                    selectedPerson = new Person();
+                }
+                else{
+                    Context context = getApplicationContext();
+                    Toast.makeText(context, "Please select a record first!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+            }
+        });
+
+
+    }
 
     @Override
     protected void onStart() {
@@ -80,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         oldRecord.setAdapter(adapter);
 
         totalNum = personList.size();
-        total.setText(R.string.total + totalNum);
+        total.setText("The total amount of record is: "+totalNum);
     }
 
     private void loadFromFile() {
@@ -128,6 +140,82 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
             // TODO Auto-generated catch block
             throw new RuntimeException();
+        }
+    }
+
+    public void add(View view) {
+        Intent intent = new Intent(this, A_NewRecord.class);
+        startActivity(intent);
+    }
+
+    public void viewEdit(View view) {
+
+        if (selectedPerson.getName() != null) {
+            String selectedPersonName = selectedPerson.getName();
+            String selectedPersonDate = selectedPerson.getDate();
+            String selectedPersonNeck = selectedPerson.getNeck();
+            String selectedPersonBust = selectedPerson.getBust();
+            String selectedPersonChest = selectedPerson.getChest();
+            String selectedPersonWaist = selectedPerson.getWaist();
+            String selectedPersonHip = selectedPerson.getHip();
+            String selectedPersonInseam = selectedPerson.getInseam();
+            String selectedPersonComment = selectedPerson.getComment();
+
+            Intent intent = new Intent(this, View_Edit.class);
+
+            intent.putExtra("Person_Name", selectedPersonName);
+            intent.putExtra("Person_Date", selectedPersonDate);
+            intent.putExtra("Person_Neck", selectedPersonNeck);
+            intent.putExtra("Person_Bust", selectedPersonBust);
+            intent.putExtra("Person_Chest", selectedPersonChest);
+            intent.putExtra("Person_Waist", selectedPersonWaist);
+            intent.putExtra("Person_Hip", selectedPersonHip);
+            intent.putExtra("Person_Inseam", selectedPersonInseam);
+            intent.putExtra("Person_Comment", selectedPersonComment);
+
+            startActivityForResult(intent, 1);
+            //selectedPerson = new Person();
+        }
+        else{
+            Context context = getApplicationContext();
+            Toast.makeText(context, "Please select a record first!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == 1) {
+            if (resultCode == RESULT_OK) {
+                String resultName = data.getStringExtra("resultName");
+                String resultDate = data.getStringExtra("resultDate");
+                String resultNeck = data.getStringExtra("resultNeck");
+                String resultBust = data.getStringExtra("resultBust");
+                String resultChest = data.getStringExtra("resultChest");
+                String resultWaist = data.getStringExtra("resultWaist");
+                String resultHip = data.getStringExtra("resultHip");
+                String resultInseam = data.getStringExtra("resultInseam");
+                String resultComment = data.getStringExtra("resultComment");
+                personList.remove(selectedPerson);
+
+                Person newPerson = new Person();
+                newPerson.setName(resultName);
+                newPerson.setDate(resultDate);
+                newPerson.setNeck(resultNeck);
+                newPerson.setBust(resultBust);
+                newPerson.setChest(resultChest);
+                newPerson.setWaist(resultWaist);
+                newPerson.setHip(resultHip);
+                newPerson.setInseam(resultInseam);
+                newPerson.setComment(resultComment);
+
+                personList.add(newPerson);
+                adapter.notifyDataSetChanged();
+                saveInFile();
+                selectedPerson = new Person();
+
+            }
         }
     }
 }

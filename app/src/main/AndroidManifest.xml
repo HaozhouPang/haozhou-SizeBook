@@ -16,6 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".A_NewRecord"></activity>
+        <activity android:name=".View_Edit"></activity>
     </application>
 
 </manifest>

@@ -11,7 +11,6 @@
 
     <ListView
         android:id="@+id/oldRecord"
-        android:choiceMode="singleChoice"
         android:listSelector="@android:color/darker_gray"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
@@ -46,7 +45,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/Edit"
-        style="@style/Widget.AppCompat.Button.Colored" />
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:onClick="viewEdit" />
 
 
 

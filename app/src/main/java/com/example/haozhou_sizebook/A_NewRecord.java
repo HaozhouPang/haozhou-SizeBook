@@ -91,9 +91,8 @@ public class A_NewRecord extends AppCompatActivity {
                     person.setComment(comment);
 
                     personList.add(person);
-//adapter.add(tweetList);
-                    // adapter.notifyDataSetChanged();
                     saveInFile();
+                    finish();
 
                 }
 
