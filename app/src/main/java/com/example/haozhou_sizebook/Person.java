@@ -129,11 +129,20 @@ public class Person {
     @Override
     public String toString() {
         String result;
-        result = "Name: " + name +"\n"
-                +"Bust: " + bust +"\n"
-                +"Chest: " + chest +"\n"
-                +"Waist: " + waist +"\n"
-                +"Inseam: " + inseam +"\n";
+        result = "Name: " + name +"\n";
+
+        if (!(bust.matches(""))){
+            result += "Bust: " + bust +"\n";
+        }
+        if (!(chest.matches(""))){
+            result += "Chest: " + chest +"\n";
+        }
+        if (!(waist.matches(""))){
+            result += "Waist: " + waist +"\n";
+        }
+        if (!(inseam.matches(""))){
+            result += "Inseam: " + inseam +"\n";
+        }
 
         return result;
     }

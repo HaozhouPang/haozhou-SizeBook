@@ -193,7 +193,8 @@
         android:layout_marginEnd="16dp"
         android:id="@+id/SaveBot"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        style="@style/Widget.AppCompat.Button.Colored" />
 
     <TextView
         android:layout_width="fill_parent"
