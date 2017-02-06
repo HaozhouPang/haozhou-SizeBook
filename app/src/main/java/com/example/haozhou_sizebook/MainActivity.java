@@ -27,6 +27,9 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
+/**
+ * The is the Main activity.
+ */
 public class MainActivity extends AppCompatActivity {
 
     private static final String FILENAME = "file.sav";
@@ -58,6 +61,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        /**
+         * The deleteButton will retrieve the selected person information and remove
+         * the selected person from personList, and store the change in file.
+         */
         deleteButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
@@ -118,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * save tweets into a specified file in JSON format.
+     * save personList into a specified file in JSON format.
      * @throws FileNotFoundException if file is not created.
      */
 
@@ -136,19 +143,30 @@ public class MainActivity extends AppCompatActivity {
 
             fos.close();
         } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
             throw new RuntimeException();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             throw new RuntimeException();
         }
     }
 
+    /**
+     * Add.
+     * OnclickListener for the "add a new record" button, it goes to the A_NewRecord activity.
+     *
+     * @param view the view
+     */
     public void add(View view) {
         Intent intent = new Intent(this, A_NewRecord.class);
         startActivity(intent);
     }
 
+    /**
+     * View edit.
+     * OncClickListener for the "Edit and View" button, it sends the information of the selected person
+     * to the "View_Edit" activity
+     *
+     * @param view the view
+     */
     public void viewEdit(View view) {
 
         if (selectedPerson.getName() != null) {
@@ -184,6 +202,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
+    /**
+     * This method receives the edited information from "View_Edit" activity
+     * and stores the changes into the file.sav.
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 

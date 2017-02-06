@@ -1,16 +1,19 @@
 package com.example.haozhou_sizebook;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 /**
  * Created by PANG on 2017-02-02.
+ * This activity receives the selected person's information and allows users to view and edit
+ * the record. all changes will be sent back to main activity and stored in file.
  */
-
 public class View_Edit extends AppCompatActivity {
 
     private Intent returnIntent;
@@ -50,6 +53,12 @@ public class View_Edit extends AppCompatActivity {
         inseamTxt = (EditText) findViewById(R.id.InseamNum);
         commentTxt = (EditText) findViewById(R.id.CommentTxt);
     }
+
+    /**
+     * Save change.
+     *send the changed record to main activity and get stored in file.
+     * @param view the view
+     */
     public void saveChange(View view) {
         String returnName = nameTxt.getText().toString();
         String returnDate = dateTxt.getText().toString();
@@ -61,17 +70,28 @@ public class View_Edit extends AppCompatActivity {
         String returnInseam = inseamTxt.getText().toString();
         String returnComment = commentTxt.getText().toString();
 
-        returnIntent.putExtra("resultName",returnName);
-        returnIntent.putExtra("resultDate",returnDate);
-        returnIntent.putExtra("resultNeck",returnNeck);
-        returnIntent.putExtra("resultBust",returnBust);
-        returnIntent.putExtra("resultChest",returnChest);
-        returnIntent.putExtra("resultWaist",returnWaist);
-        returnIntent.putExtra("resultHip",returnHip);
-        returnIntent.putExtra("resultInseam",returnInseam);
-        returnIntent.putExtra("resultComment",returnComment);
-        setResult(Activity.RESULT_OK,returnIntent);
-        finish();
+        if (!(returnName.matches(""))) {
+
+            returnIntent.putExtra("resultName", returnName);
+            returnIntent.putExtra("resultDate", returnDate);
+            returnIntent.putExtra("resultNeck", returnNeck);
+            returnIntent.putExtra("resultBust", returnBust);
+            returnIntent.putExtra("resultChest", returnChest);
+            returnIntent.putExtra("resultWaist", returnWaist);
+            returnIntent.putExtra("resultHip", returnHip);
+            returnIntent.putExtra("resultInseam", returnInseam);
+            returnIntent.putExtra("resultComment", returnComment);
+            setResult(Activity.RESULT_OK, returnIntent);
+
+            Context context = getApplicationContext();
+            Toast.makeText(context, "changes saved", Toast.LENGTH_SHORT).show();
+            finish();
+        }
+        else{
+            Context context = getApplicationContext();
+            Toast.makeText(context, "The name field is mandatory for a record!", Toast.LENGTH_SHORT).show();
+            return;
+        }
     }
 
     @Override

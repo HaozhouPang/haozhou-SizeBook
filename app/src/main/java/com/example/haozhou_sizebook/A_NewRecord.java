@@ -22,6 +22,10 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
+/**
+ * This activity allows users to input the information of new record and save the
+ * new person in personList and file.
+ */
 public class A_NewRecord extends AppCompatActivity {
     private static final String FILENAME = "file.sav";
     private ArrayList<Person> personList;
@@ -92,11 +96,13 @@ public class A_NewRecord extends AppCompatActivity {
 
                     personList.add(person);
                     saveInFile();
+
+                    Context context = getApplicationContext();
+                    Toast.makeText(context, "new record added", Toast.LENGTH_SHORT).show();
+
                     finish();
 
                 }
-
-
 
             }
         });
@@ -106,10 +112,7 @@ public class A_NewRecord extends AppCompatActivity {
         // TODO Auto-generated method stub
         super.onStart();
         loadFromFile();
-        //tweetList = new ArrayList<Tweet>();
-        //adapter = new ArrayAdapter<Person>(this,
-        //        R.layout.list_item, personList);
-        //oldRecord.setAdapter(adapter);
+
     }
     private void saveInFile() {
         try {
