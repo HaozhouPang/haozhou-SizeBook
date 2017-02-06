@@ -182,7 +182,7 @@
 
 
     <Button
-        android:text="Save Changes"
+        android:text="Save Changes and back"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/SaveChangeBot"

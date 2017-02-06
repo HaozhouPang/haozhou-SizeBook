@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         Button deleteButton = (Button) findViewById(R.id.Delete);
         oldRecord = (ListView) findViewById(R.id.oldRecord);
         total = (TextView) findViewById(R.id.totalAmount);
+        selectedPerson = new Person();
 
         oldRecord.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
