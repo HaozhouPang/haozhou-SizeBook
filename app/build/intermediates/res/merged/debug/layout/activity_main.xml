@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome" />
+
+    <ListView
+        android:id="@+id/oldRecord"
+        android:listSelector="@android:color/darker_gray"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="vertical">
+    </ListView>
+
+
+    <TextView
+        android:id="@+id/totalAmount"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+    <Button
+        android:id="@+id/AddNew"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/AddNew"
+        android:onClick="add"
+        style="@style/Widget.AppCompat.Button.Colored" />
+
+    <Button
+        android:id="@+id/Delete"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Delete"
+        style="@style/Widget.AppCompat.Button.Colored" />
+
+    <Button
+        android:id="@+id/View_Edit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Edit"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:onClick="viewEdit" />
+
+
+
+
+
+</LinearLayout>
