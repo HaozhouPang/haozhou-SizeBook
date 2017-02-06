@@ -126,7 +126,7 @@ public class Person implements validityCheck{
      * @param neck the neck
      */
     public void setNeck(String neck) {
-        this.neck = neck;
+        this.neck = neck.split("\\.", 2)[0];
     }
 
     /**
@@ -144,7 +144,7 @@ public class Person implements validityCheck{
      * @param bust the bust
      */
     public void setBust(String bust) {
-        this.bust = bust;
+        this.bust = bust.split("\\.", 2)[0];
     }
 
     /**
@@ -162,7 +162,7 @@ public class Person implements validityCheck{
      * @param chest the chest
      */
     public void setChest(String chest) {
-        this.chest = chest;
+        this.chest = chest.split("\\.", 2)[0];
     }
 
     /**
@@ -180,7 +180,7 @@ public class Person implements validityCheck{
      * @param waist the waist
      */
     public void setWaist(String waist) {
-        this.waist = waist;
+        this.waist = waist.split("\\.", 2)[0];
     }
 
     /**
@@ -198,7 +198,7 @@ public class Person implements validityCheck{
      * @param hip the hip
      */
     public void setHip(String hip) {
-        this.hip = hip;
+        this.hip = hip.split("\\.", 2)[0];
     }
 
     /**
@@ -216,7 +216,7 @@ public class Person implements validityCheck{
      * @param inseam the inseam
      */
     public void setInseam(String inseam) {
-        this.inseam = inseam;
+        this.inseam = inseam.split("\\.", 2)[0];
     }
 
     /**

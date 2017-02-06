@@ -83,7 +83,6 @@ public class A_NewRecord extends AppCompatActivity {
                     String inseam = inseamTxt.getText().toString();
                     String comment = commentTxt.getText().toString();
 
-
                     Person person = new Person(name);
                     person.setDate(date);
                     person.setNeck(neck);
